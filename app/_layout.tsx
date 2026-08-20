@@ -29,6 +29,14 @@ function RootLayout() {
             headerShown: false,
           }}
         />
+        {/* Écran de fiche de dérangement */}
+        <Stack.Screen
+          name="Derangement"
+          options={{
+            title: "Fiche de dérangement",
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );

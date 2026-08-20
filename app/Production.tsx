@@ -848,9 +848,7 @@ export default function Production() {
                           }}
                         >
                           {" "}
-                          {form.GPS_FAT !== null
-                            ? form.GPS_FAT
-                            : "Non défini"}{" "}
+                          {form.GPS_FAT || "Non défini"}{" "}
                         </Text>
                       )}
                     </Pressable>
@@ -873,9 +871,7 @@ export default function Production() {
                           }}
                         >
                           {" "}
-                          {form.GPS_CLIENT !== null
-                            ? form.GPS_CLIENT
-                            : "Non défini"}{" "}
+                          {form.GPS_CLIENT || "Non défini"}{" "}
                         </Text>
                       )}
                     </Pressable>
@@ -963,7 +959,47 @@ export default function Production() {
                     borderRadius: 8,
                     borderWidth: 0.5,
                   }}
-                  onPress={copyToClipboard}
+                  onPress={() => {
+                    setForm({
+                      Equipe: "",
+                      Client: "",
+                      Ligne: "",
+                      Mobile: "",
+                      Etat: "PON",
+                      Msan: "",
+                      Port: "",
+                      PortDisponible: "",
+                      Lineaire: "",
+                      Depart: "",
+                      Arriver: "",
+                      TypeCable: "CPC",
+                      PuissanceFAT: "",
+                      PuissancePTO: "",
+                      MAC: "",
+                      SN: "",
+                      PoteauxTraverser: "",
+                      PoteauxImplanter: "",
+                      Rue: "",
+                      Pince: "",
+                      Crochets: "",
+                      Susp: "",
+                      Piton: "",
+                      Closer: "",
+                      RP1: "",
+                      Traverse13T: "",
+                      Traverse15T: "",
+                      SemelleEq: "",
+                      PoteauxSBEEArmes: "",
+                      GPS_FAT: null,
+                      GPS_CLIENT: null,
+                    });
+                    () => {
+                      setLocation({
+                        PoteauxArmes: [],
+                        PoteauxImplantes: [],
+                      });
+                    };
+                  }}
                 >
                   <View
                     style={{

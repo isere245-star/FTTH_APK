@@ -268,6 +268,18 @@ export default function Derangement() {
       <SafeAreaView style={styles.fond}>
         <KeyboardAvoidingView style={styles.keyboard}>
           <ScrollView>
+            {/* En-tête de la fiche */}
+              <View
+                style={{
+                    flex: 0,
+                    width: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 15,
+                    }}
+                  >
+                <Text style={styles.text_primary}> Fiche de dérangement </Text>
+              </View>
             <View style={styles.scroll}>
               {/* ==================== INFORMATIONS GENERALES ==================== */}
               <View style={styles.button_cards}>
@@ -819,8 +831,34 @@ export default function Derangement() {
                     borderRadius: 8,
                     borderWidth: 0.5,
                   }}
-                  onPress={copyToClipboard}
-                >
+                  onPress={()=> {
+                    setForm({
+                      Equipe: "RAINIER",
+                      Date_Date: "",
+                      Date_Signalisation: "",
+                      Date_Intervention: "",
+                      Date_Debut: "",
+                      Date_Fin: "",
+                      Client: "",
+                      Ligne: "",
+                      Mobile: "",
+                      Zone: "PARAKOU",
+                      Type: "B2C",
+                      Msan: "",
+                      Pout: "",
+                      Constat: "",
+                      TravauxEffectue: "",
+                      GPS_Fat: "",
+                      GPS_Client: "",
+                      Poteaux_Arme: [],
+                      Poteaux_Implante: [],
+                    });
+                    setLocation({
+                      PoteauxArmes: [],
+                      PoteauxImplantes: [],
+                    });
+                  }
+                  }>
                   <View
                     style={{
                       width: "100%",
@@ -935,10 +973,12 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     flex: 0,
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
     width: "100%",
+    gap: 10,
+    marginBottom: 20,
   },
   buttonAll: {
     flex: 0,
