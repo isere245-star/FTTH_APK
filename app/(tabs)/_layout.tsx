@@ -1,35 +1,50 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import { IconSymbol } from "@/components/ui/icon-symbol";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+function Layout () {
   return (
+    
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+      >
       <Tabs.Screen
-        name="index"
+        name="Accueil"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Acceuil',
+          tabBarIcon: ({focused}) => 
+          (<IconSymbol size={28}
+          name="house.fill" color={'#94A3B8'}/>) ,
+          headerShown : false }}
+      />
+      <Tabs.Screen
+        name="Historique"
+        options={{
+          title: 'Historique',
+          tabBarIcon: () => <IconSymbol size={28}
+          name="clock" color={'#94A3B8'}/>, 
+          headerShown : false
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="Models" 
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Models',
+          tabBarIcon: () =>
+          <IconSymbol size={28}
+          name="list.clipboard.fill" color={'#94A3B8'}/>
+          ,headerShown : false }}
+          
+      />
+      <Tabs.Screen
+        name="Parameters"
+        options={{
+          title: 'Paramètres',
+          tabBarIcon: () => <IconSymbol size={28}
+          name="gearshape" color={'#94A3B8'} />, headerShown : false
         }}
       />
+      
     </Tabs>
-  );
+  )
 }
+
+export default Layout;
